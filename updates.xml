@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<updates>
+    <update>
+        <version>1.0.0</version>
+        <url>https://yourdomain.com/yourapp/appTestGithubUpdate-1.0.0.dmg</url>
+        <changelog>Initial release.</changelog>
+        <mandatory>false</mandatory>
+    </update>
+</updates>

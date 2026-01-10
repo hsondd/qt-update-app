@@ -1,0 +1,33 @@
+#include <QGuiApplication>
+#include <QQmlApplicationEngine>
+#include "updater.h"
+
+#ifdef Q_OS_MAC
+#include "sparkleupdater.h"
+#else
+#include "defaultupdater.h"
+#endif
+
+int main(int argc, char *argv[])
+{
+    QGuiApplication app(argc, argv);
+
+#ifdef Q_OS_MAC
+    auto updater = new updater::SparkleUpdater();
+    updater->setAutomaticDownload(true);
+    updater->setManifestUrl(QUrl("https://yourdomain.com/updates.xml"));
+    Updater::setInstance(updater);
+#else
+    auto updater = new updater::DefaultUpdater();
+    updater->setAutomaticDownload(true);
+    updater->setManifestUrl(QUrl("https://yourdomain.com/updates.xml"));
+    Updater::setInstance(updater);
+#endif
+
+    QQmlApplicationEngine engine;
+    engine.loadFromModule("TestGithubUpdate", "Main");
+    if (engine.rootObjects().isEmpty())
+        return -1;
+
+    return app.exec();
+}
