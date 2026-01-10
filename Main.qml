@@ -1,6 +1,6 @@
 import QtQuick
 import QtQuick.Controls
-import TestGithubUpdate // <--- Import đúng tên URI trong CMake
+import TestGithubUpdate
 
 Window {
     width: 640

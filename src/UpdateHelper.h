@@ -1,11 +1,11 @@
 #pragma once
 #include <QObject>
-#include <QQmlEngine> // <--- Thêm dòng này
+#include <QQmlEngine>
 
 class UpdaterHelper : public QObject {
     Q_OBJECT
-    QML_ELEMENT       // <--- Bắt buộc có dòng này để QML nhận diện
+    QML_ELEMENT
 public:
-    explicit UpdaterHelper(QObject *parent = nullptr) : QObject(parent) {} // Thêm constructor cho chuẩn
+    explicit UpdaterHelper(QObject *parent = nullptr) : QObject(parent) {}
     Q_INVOKABLE void checkForUpdates();
 };
