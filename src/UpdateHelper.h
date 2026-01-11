@@ -8,4 +8,5 @@ class UpdaterHelper : public QObject {
 public:
     explicit UpdaterHelper(QObject *parent = nullptr) : QObject(parent) {}
     Q_INVOKABLE void checkForUpdates();
+    Q_INVOKABLE void checkForUpdatesInBackground();
 };

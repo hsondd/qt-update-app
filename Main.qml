@@ -2,7 +2,7 @@ import QtQuick
 import QtQuick.Controls
 import TestGithubUpdate
 
-Window {
+ApplicationWindow {
     width: 640
     height: 480
     visible: true
@@ -11,6 +11,8 @@ Window {
     UpdaterHelper {
         id: updater
     }
+
+    Component.onCompleted: updater.checkForUpdatesInBackground()
 
     Button {
         text: "Check for Updates"

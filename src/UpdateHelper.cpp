@@ -5,3 +5,7 @@
 void UpdaterHelper::checkForUpdates() {
     Updater::instance().checkAndShowUI();
 }
+
+void UpdaterHelper::checkForUpdatesInBackground() {
+    Updater::instance().checkAndMaybeShowUI();
+}
