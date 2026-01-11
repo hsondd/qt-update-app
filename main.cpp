@@ -15,7 +15,6 @@ int main(int argc, char *argv[])
 #ifdef Q_OS_MAC
     auto updater = new updater::SparkleUpdater();
     updater->setAutomaticDownload(true);
-    updater->setManifestUrl(QUrl("https://yourdomain.com/updates.xml"));
     Updater::setInstance(updater);
 #else
     auto updater = new updater::DefaultUpdater();
