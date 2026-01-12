@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.16)
 
-project(TestGithubUpdate VERSION 6.9 LANGUAGES CXX)
+project(TestGithubUpdate VERSION 7.0 LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
