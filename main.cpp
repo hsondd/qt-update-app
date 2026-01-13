@@ -1,4 +1,4 @@
-#include <QGuiApplication>
+#include <QApplication>
 #include <QQmlApplicationEngine>
 #include "updater.h"
 
@@ -10,7 +10,7 @@
 
 int main(int argc, char *argv[])
 {
-    QGuiApplication app(argc, argv);
+    QApplication app(argc, argv);
 
 #ifdef Q_OS_MAC
     auto updater = new updater::SparkleUpdater();
