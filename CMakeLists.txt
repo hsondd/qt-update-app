@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.16)
 
-project(TestGithubUpdate VERSION 7.0 LANGUAGES CXX)
+project(TestGithubUpdate VERSION 9.6 LANGUAGES CXX)
 
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
@@ -8,19 +8,26 @@ find_package(Qt6 REQUIRED COMPONENTS Quick Widgets Network Gui Core)
 
 qt_standard_project_setup(REQUIRES 6.8)
 
-file(GLOB UPDATER_SOURCES
+file(GLOB UPDATER_COMMON_SOURCES
     updater/src/*.cpp
     updater/src/impl/*.cpp
     updater/src/impl/*.h
-    updater/src/sparkle/*.mm
-    updater/src/sparkle/*.h
 )
 
-file(GLOB UPDATER_HEADERS
+file(GLOB UPDATER_COMMON_HEADERS
     updater/src/*.h
     updater/src/impl/*.h
-    updater/src/sparkle/*.h
 )
+
+set(UPDATER_SOURCES ${UPDATER_COMMON_SOURCES})
+set(UPDATER_HEADERS ${UPDATER_COMMON_HEADERS})
+
+if(APPLE)
+    file(GLOB UPDATER_SPARKLE_SOURCES updater/src/sparkle/*.mm)
+    file(GLOB UPDATER_SPARKLE_HEADERS updater/src/sparkle/*.h)
+    list(APPEND UPDATER_SOURCES ${UPDATER_SPARKLE_SOURCES})
+    list(APPEND UPDATER_HEADERS ${UPDATER_SPARKLE_HEADERS})
+endif()
 
 qt_add_executable(appTestGithubUpdate
     main.cpp
@@ -48,7 +55,6 @@ target_include_directories(appTestGithubUpdate PRIVATE
     src
     updater/src
     updater/src/impl
-    updater/src/sparkle
 )
 
 target_link_libraries(appTestGithubUpdate
@@ -56,6 +62,7 @@ target_link_libraries(appTestGithubUpdate
 )
 
 if(APPLE)
+    target_include_directories(appTestGithubUpdate PRIVATE updater/src/sparkle)
     find_library(SPARKLE_FRAMEWORK Sparkle HINTS "${CMAKE_SOURCE_DIR}/Frameworks")
     
     if(SPARKLE_FRAMEWORK)
