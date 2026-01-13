@@ -19,7 +19,8 @@ int main(int argc, char *argv[])
 #else
     auto updater = new updater::DefaultUpdater();
     updater->setAutomaticDownload(true);
-    updater->setManifestUrl(QUrl("https://yourdomain.com/updates.xml"));
+    updater->setManifestUrl(
+        QUrl(QStringLiteral("https://github.com/hsondd/qt-update-app/releases/latest/download/appcast-win.xml")));
     Updater::setInstance(updater);
 #endif
 
