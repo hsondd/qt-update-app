@@ -1,0 +1,15 @@
+<?xml version="1.0" standalone="yes"?>
+<rss xmlns:sparkle="http://www.andymatuschak.org/xml-namespaces/sparkle" version="2.0">
+  <channel>
+    <title>appTestGithubUpdate</title>
+    <item>
+      <title>19.6</title>
+      <sparkle:version>19.6</sparkle:version>
+      <sparkle:shortVersionString>19.6</sparkle:shortVersionString>
+      <enclosure
+        url="https://github.com/hsondd/qt-update-app/releases/download/v19.6/appTestGithubUpdate-19.6.exe"
+        length="28503809"
+        type="application/octet-stream" />
+    </item>
+  </channel>
+</rss>
