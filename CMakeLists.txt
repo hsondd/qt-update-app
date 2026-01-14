@@ -37,6 +37,10 @@ qt_add_executable(appTestGithubUpdate
     ${UPDATER_HEADERS}
 )
 
+target_compile_definitions(appTestGithubUpdate PRIVATE
+    APP_VERSION="${PROJECT_VERSION}"
+)
+
 qt_add_qml_module(appTestGithubUpdate
     URI TestGithubUpdate
     QML_FILES
